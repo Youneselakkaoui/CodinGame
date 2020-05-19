@@ -1,0 +1,31 @@
+import sys
+import math
+
+# Don't let the machines win. You are humanity's last hope...
+
+width = int(input())  # the number of cells on the X axis
+height = int(input())  # the number of cells on the Y axis
+lst=list()
+
+def recherch_droit(x,y):
+    for i in range(x+1, width):
+        if lst[y][i] == '0':
+            return i, y
+    return -1, -1
+
+def recherch_dessous(x,y):
+    for j in range(y+1, height):
+        if lst[j][x] == '0':
+            return x,j
+    return -1, -1
+  
+for i in range(height):
+    line = input()  # width characters, each either 0 or .
+    lst.append(list(line))
+
+for y in range(height):
+    for x in range(width):
+        if lst[y][x] == '0':
+            x1, y1 =recherch_droit(x,y)
+            x2, y2 = recherch_dessous(x,y)
+            print(x, y, x1, y1, x2, y2)
