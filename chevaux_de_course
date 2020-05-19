@@ -1,0 +1,32 @@
+import sys
+import math
+
+# Auto-generated code below aims at helping you parse
+# the standard input according to the problem statement.
+
+n = int(input())
+mn=0
+dif=0
+answer = 0
+j=0
+list_pi = list()
+
+
+for i in range(n):
+    pi = int(input())
+    list_pi.append(pi)
+
+list_pi.sort(reverse=True)
+
+mn = 10**10
+
+for j in range(n-1):
+    dif = list_pi[j] - list_pi[j+1]
+    if dif <= mn:
+        mn = dif
+        answer = dif
+
+# Write an answer using print
+# To debug: print("Debug messages...", file=sys.stderr)
+
+print(answer)
